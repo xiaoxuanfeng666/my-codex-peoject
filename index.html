@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101528" />
+  <title>好运抽奖屋</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <div class="app-shell">
+    <header class="hero">
+      <div class="eyebrow">LUCKY DRAW</div>
+      <h1>今天，<span>好运</span>转起来</h1>
+      <p>点击下方按钮，看看下一个幸运儿是不是你。</p>
+    </header>
+
+    <main class="game-grid">
+      <section class="wheel-card" aria-labelledby="wheelTitle">
+        <div class="card-heading">
+          <div>
+            <p class="section-kicker">幸运转盘</p>
+            <h2 id="wheelTitle">开始你的好运</h2>
+          </div>
+          <div class="spin-count">
+            <strong id="spinCount">0</strong>
+            <span>次尝试</span>
+          </div>
+        </div>
+
+        <div class="wheel-stage">
+          <div class="wheel-glow"></div>
+          <div class="pointer" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="wheel-rotor" id="wheelRotor">
+            <svg id="wheel" viewBox="0 0 400 400" role="img" aria-label="抽奖转盘">
+              <circle class="wheel-border" cx="200" cy="200" r="190"></circle>
+              <g id="wheelSectors"></g>
+              <circle class="wheel-ring" cx="200" cy="200" r="68"></circle>
+              <circle class="wheel-hub" cx="200" cy="200" r="55"></circle>
+              <text class="hub-star" x="200" y="210" text-anchor="middle">★</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="result-panel" id="resultPanel" aria-live="polite">
+          <span class="result-icon" id="resultIcon">✨</span>
+          <div>
+            <p id="resultLabel">准备好了吗？</p>
+            <strong id="resultText">点击按钮开启好运</strong>
+          </div>
+        </div>
+
+        <button class="spin-button" id="spinButton" type="button">
+          <span class="button-icon">🎲</span>
+          <span id="buttonText">开始抽奖</span>
+        </button>
+      </section>
+
+      <aside class="side-panel">
+        <section class="panel-card">
+          <div class="panel-title">
+            <div>
+              <p class="section-kicker">奖品池</p>
+              <h2>今日奖池</h2>
+            </div>
+            <span class="live-dot"></span>
+          </div>
+          <ul class="prize-list" id="prizeList"></ul>
+        </section>
+
+        <section class="panel-card history-card">
+          <div class="panel-title">
+            <div>
+              <p class="section-kicker">抽奖足迹</p>
+              <h2>最近结果</h2>
+            </div>
+            <button class="text-button" id="clearHistory" type="button">清空</button>
+          </div>
+          <div class="history-list" id="historyList"></div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <p>每一份好运，都值得被记录</p>
+      <div class="access-path">
+        浏览器访问路径：<code id="accessPath">正在获取...</code>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
